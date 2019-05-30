@@ -56,7 +56,6 @@ var app = new Framework7({
               quality: 10,
               destinationType: Camera.DestinationType.DATA_URL,
               sourceType: Camera.PictureSourceType.CAMERA,
-              allowEdit: true,
               encodingType: Camera.EncodingType.JPEG,
               mediaType: Camera.MediaType.PICTURE,
               targetWidth: 320, // 360
