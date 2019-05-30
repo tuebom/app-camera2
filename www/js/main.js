@@ -34,7 +34,8 @@ var app = new Framework7({
   on: {
 
     init: function () { // sama dengan onDeviceReady
-
+      var pictureSource = navigator.camera.PictureSourceType;
+      var destinationType = navigator.camera.DestinationType;
     }
   },      
   routes: [
@@ -49,13 +50,13 @@ var app = new Framework7({
           
           // ambil foto
           $$('.btn-foto').on('click', function (e) {
-            // app.dialog.alert('Take photo!');
+            app.dialog.alert('Take photo!');
             // return false;
             
             var options = {
               quality: 10,
-              destinationType: Camera.DestinationType.DATA_URL,
-              sourceType: Camera.PictureSourceType.CAMERA,
+              destinationType: destinationType.DATA_URL,
+              sourceType: pictureSource.CAMERA,
               encodingType: Camera.EncodingType.JPEG,
               mediaType: Camera.MediaType.PICTURE,
               targetWidth: 320, // 360
