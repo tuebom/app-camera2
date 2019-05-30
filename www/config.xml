@@ -33,6 +33,7 @@
     <preference name="phonegap-version" value="cli-7.1.0" />
     <!--<preference name="android-build-tool" value="gradle" />-->
     
+    <plugin name="cordova-plugin-device" source="npm" />
     <plugin name="cordova-plugin-camera" source="npm" />
     <plugin name="cordova-plugin-file-transfer" source="npm" />
     <plugin name="cordova-plugin-backbutton" source="npm" />
