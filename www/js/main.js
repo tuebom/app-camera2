@@ -27,21 +27,6 @@ var app = new Framework7({
   methods: {
     takePicture: function () {
       // app.dialog.alert('Hello World!');
-  
-      navigator.device.capture.captureImage( function(mediaFiles) {
-        // var i, path, len;
-        // for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-            // path = mediaFiles[i].fullPath;
-            // do something interesting with the file
-        // }
-        
-        $$('#cameraimage').src = mediaFiles[0].fullPath;
-        // $$('#filepath').text(mediaFiles[0].fullPath);
-      
-      }, function (message) {
-        alert('Failed because: ' + message);
-        
-      }, {limit: 1});
     },
     // uploadFoto: function (dn) {
     // }
@@ -69,8 +54,8 @@ var app = new Framework7({
             
             var options = {
               quality: 10,
-              destinationType: destinationType.DATA_URL,
-              sourceType: pictureSource.CAMERA,
+              destinationType: Camera.DestinationType.DATA_URL,
+              sourceType: Camera.PictureSource.CAMERA,
               allowEdit: true,
               encodingType: Camera.EncodingType.JPEG,
               mediaType: Camera.MediaType.PICTURE,
