@@ -3,7 +3,7 @@ var $$ = Dom7;
 
 var app = new Framework7({
   root: '#app',
-  name: 'ASKITCHEN',
+  name: 'Upload',
   id: 'com.ask.upload.foto',
   init: true,
   initOnDeviceReady: true,
@@ -72,7 +72,7 @@ var app = new Framework7({
               $$('#cameraimage').src = "data:image/jpeg;base64," + imageData;
             }, function (err) {
               // console.log('Failed because: ');
-              // console.log(err);
+              app.dialog.alert(err);
             });
           });
           
@@ -114,89 +114,13 @@ var mainView = app.views.create('.view-main', {
   url: '/'
 });
 
-
-// Login Screen
-$$('#my-login-screen .login-button').on('click', function () {
-  
-  var user = $$('#my-login-screen [name="usr"]').val();
-  if (user == '') {
-      app.dialog.alert('Masukkan data user.', 'Login User');
-      return;
-  }
-
-  var password = $$('#my-login-screen [name="pwd"]').val();
-  if (password == '') {
-      app.dialog.alert('Masukkan password.', 'Login User');
-      return;
-  }
-  
-  app.preloader.show();
-
-  var formData = app.form.convertToData('.login-form');
-
-  // var regId = localStorage.getItem('RegId');
-  // formData.gcmid = regId;
-
-  
-  app.request.post('https://apgroup.id/api/method/login', formData, function (res) {
-    
-    app.preloader.hide();
-    
-    // console.log(res)
-    var data = JSON.parse(res);
-
-    if (data.message == 'Logged In') {
-    
-  //     localStorage.setItem('user', user);
-  //     localStorage.setItem('password', password);
-
-      app.loginScreen.close('#my-login-screen');
-      
-      app.data.bLogedIn = true;
-      app.data.user     = user;
-      app.data.password = password;
-      // app.data.token = data.token;
-      
-      // kosongkan isian nomor pin
-      $$('#my-login-screen [name="pwd"]').val('');
-
-    }
-  },
-  function (xhr, status) {
-    
-    app.preloader.hide();
-    app.dialog.alert('Invalid user!', 'Login User');
-  });
-});
-
-$$('#my-login-screen').on('loginscreen:opened', function (e, loginScreen) {
-  // set data ke form login
-  $$('#my-login-screen [name="usr"]').val(localStorage.getItem('email'));
-});
-
 $$(document).on('backbutton', function (e) {
 
   e.preventDefault();
 
   // for example, based on what and where view you have
   if (app.views.main.router.url == '/') {
-    
-    if (!bBackPressed) {
-      
-      bBackPressed = true;
-
-      // show toast
-      var toast = app.toast.create({
-        text: 'Press back once again to exit.',
-        on: {
-          opened: function () {
-            // console.log('Toast opened')
-          }
-        }
-      })
-    } else {
-      navigator.app.exitApp();
-    }
+    navigator.app.exitApp();
   }
 });
 
