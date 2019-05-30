@@ -47,6 +47,12 @@
     <icon gap:platform="android" height="96" src="res/icon/cordova_android_96.png" width="96" />
     <icon gap:platform="blackberry" height="80" src="res/icon/cordova_bb_80.png" width="80" />
     <icon gap:platform="ios" height="144" src="res/icon/cordova_ios_144.png" width="144" /> -->
+    
+    <config-file target="AndroidManifest.xml" parent="/*" mode="merge">
+        <uses-permission android:name="android.permission.CAMERA" />
+        <uses-feature android:name="android.hardware.camera" />
+        <uses-feature android:name="android.hardware.camera.autofocus" />
+    </config-file>
 
     <!--<icon src="img/icon/icon.png"/>-->
     <platform name="android">
