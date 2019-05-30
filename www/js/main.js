@@ -55,7 +55,7 @@ var app = new Framework7({
             var options = {
               quality: 10,
               destinationType: Camera.DestinationType.DATA_URL,
-              sourceType: Camera.PictureSource.CAMERA,
+              sourceType: Camera.PictureSourceType.CAMERA,
               allowEdit: true,
               encodingType: Camera.EncodingType.JPEG,
               mediaType: Camera.MediaType.PICTURE,
