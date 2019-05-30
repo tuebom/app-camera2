@@ -1,0 +1,72 @@
+<template>
+  <div data-name="home" class="page toolbar-fixed">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="left">
+          <a href="#" class="link icon-only panel-open" data-panel="left">
+            <i class="icon f7-icons ios-only">menu</i>
+            <i class="icon material-icons md-only">menu</i>
+          </a>
+        </div>
+        <div class="center">DAFTAR SURAT JALAN</div>
+        <div class="right"><a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a></div>
+      </div>
+    </div>
+    <div class="toolbar tabbar">
+      <div class="toolbar-inner"><a href="#tab1" class="active tab-link">BELUM DIAMBIL</a><a href="#tab2" class="tab-link">SUDAH DIAMBIL</a></div>
+    </div>
+    <div class="tabs">
+      <div id="tab1" class="page-content tab active">
+        <div class="content-block">
+            {{#each data}}
+            <div class="card">
+              <div class="card-header"><span>{{name}}</span><span>{{lr_date}}</span></div>
+              <div class="card-content"> 
+                <div class="card-content-inner" style="padding: 5px 16px;">
+                  <div style="width: 100%; vertical-align: middle;">
+                    <span style="display: inline-block; width: 80%;"><b>{{customer_name}}</b></span>
+                    <span style="display: inline-block; width: 20%;"><a href="/upload/" class="button button-fill color-blue">Ambil</a></span>
+                  </div>
+                  {{address_display}}
+                </div>
+              </div>
+              <!-- <div class="card-footer"><a href="/upload/" class="button button-fill color-blue">Ambil</a></div> -->
+            </div>
+            {{/each}}
+        </div>
+      </div>
+      <div id="tab2" class="page-content tab">
+        <div class="content-block">
+            {{#each data}}
+            <div class="card">
+              <div class="card-header"><span>{{name}}</span><span>{{lr_date}}</span></div>
+              <div class="card-content"> 
+                <div class="card-content-inner" style="padding: 5px 16px;">
+                  <div style="width: 100%; vertical-align: middle;">
+                    <span style="display: inline-block; width: 80%;"><b>{{customer_name}}</b></span>
+                    <span style="display: inline-block; width: 20%;"><a href="/upload/" class="button button-fill color-blue">Ambil</a></span>
+                  </div>
+                  {{address_display}}
+                </div>
+              </div>
+              <!-- <div class="card-footer"><a href="/upload/" class="button button-fill color-blue">Ambil</a></div> -->
+            </div>
+            {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+    return {
+      // Page Events
+      on: {
+        pageInit: function(e, page) {
+          
+          $$('.btn-foto').on('click', function (e) {
+            app.dialog.alert('Take photo!');
+          });
+        }
+      }
+    }
+</script>
