@@ -49,6 +49,7 @@ var app = new Framework7({
       path: '/',
       url: './pages/upload.html',  
       on: {
+        
         pageInit: function(e, page) {
           
           // ambil foto
