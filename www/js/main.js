@@ -73,11 +73,13 @@ var app = new Framework7({
 
             // update camera image directive
             navigator.camera.getPicture(function cameraSuccess(imageData) {
-              $$('#cameraimage').src = "data:image/jpeg;base64," + imageData;
+              $$('#cameraimage').attr('src', "data:image/jpeg;base64," + imageData);
             }, function cameraError(err) {
               // console.log('Failed because: ');
               app.dialog.alert(err);
             }, options);
+
+            // $$('#cameraimage').attr('src', "img/noimage2.png");
           });
           
           
